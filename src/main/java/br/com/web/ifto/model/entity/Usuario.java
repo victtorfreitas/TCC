@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty;;
 
 /**
  * Responsável por representar os usuarios
- * @author 02729712194
+ * @author Victtor
  *
  */
 @Entity
@@ -24,20 +24,20 @@ public class Usuario implements Serializable{
 	private Long id;
 
 	@NotEmpty
-	@Column(name="nome", nullable=true, length=256)
+	@Column(name="nome", nullable=false)
 	private String nome;
 	
 	@NotEmpty
-	@Column(name="login", nullable=true, length=256)
+	@Column(name="login", nullable=false)
 	private String login;
 	
 	@NotEmpty
-	@Column(name="senha", nullable=true, length=256)
+	@Column(name="senha", nullable=false)
 	private String senha;
 	
 	@NotEmpty
 	@Email
-	@Column(name="email", length=256)
+	@Column(name="email", nullable=true)
 	private String email;
 	
 	

@@ -7,9 +7,13 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	<persistence-unit name="alura_horas" transaction-type="JTA">
 
 		<!-- <jta-data-source>alura_horasDS</jta-data-source> -->
-		<jta-data-source>java:jboss/datasources/alura_horasDS</jta-data-source>
+		<!-- <jta-data-source>java:jboss/datasources/alura_horasDS</jta-data-source> -->
+		<jta-data-source>java:jboss/datasources/ifto_apiDS</jta-data-source>
 		
 		<class>br.com.web.ifto.model.entity.Usuario</class>
+		<class>br.com.web.ifto.model.entity.Curso</class>
+		<class>br.com.web.ifto.model.entity.Coordenacao</class>
+		<class>br.com.web.ifto.model.entity.Coordenador</class>
 
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />

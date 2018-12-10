@@ -24,6 +24,8 @@
 					<li class="nav-item"><a class="nav-link"
 						href="${linkTo[LoginController].form()}">Login</a></li>
 				</c:if>
+				<li class="nav-item"><a class="nav-link"
+						href="${linkTo[HeaderController].page()}">TESTE</a></li>
 			</ul>
 		</div>
 	</nav>
