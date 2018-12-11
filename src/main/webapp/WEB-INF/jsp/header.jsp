@@ -4,8 +4,8 @@
 <html>
 <head>
 <title>Título</title>
-<link href="<c:url value='/css/bootstrap.css'/>" rel="stylesheet" />
-<link href="<c:url value='/css/site.css'/>" rel="stylesheet" />
+<link href="<c:url value='/styles/css/bootstrap.css'/>" rel="stylesheet" />
+<link href="<c:url value='/styles/css/site.css'/>" rel="stylesheet" />
 </head>
 <body>
 	<header> </header>
@@ -26,6 +26,10 @@
 				</c:if>
 				<li class="nav-item"><a class="nav-link"
 						href="${linkTo[HeaderController].page()}">TESTE</a></li>
+				<li class="nav-item"><a class="nav-link"
+						href="${linkTo[HeaderController].page2()}">TESTE2</a></li>
+				<li class="nav-item"><a class="nav-link"
+						href="${linkTo[HeaderController].tema()}">TEMA</a></li>
 			</ul>
 		</div>
 	</nav>

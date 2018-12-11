@@ -2,150 +2,175 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>IF-Aplication</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
+<link href="<c:url value='/css/menu.css'/>" rel="stylesheet" />
+<script src="<c:url value='/js/site.js'/>" type="text/javascript"></script>
+
 <script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<%-- <link href="<c:url value='/css/site.css'/>" rel="stylesheet" /> --%>
-<script type="text/javascript" src="<c:url value='/js/site.js'/>"></script>
-<%-- <link href="<c:url value='/js/site.js'/>" rel="stylesheet" /> --%>
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 <body>
-
-	<nav class="navbar navbar-default navbar-static-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button"
-					class="navbar-toggle navbar-toggle-sidebar collapsed">
-					MENU</button>
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"> Administrator </a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<form class="navbar-form navbar-left" method="GET" role="search">
-					<div class="form-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">
-						<i class="glyphicon glyphicon-search"></i>
-					</button>
-				</form>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="http://www.pingpong-labs.com" target="_blank">Visit
-							Site</a></li>
-					<li class="dropdown "><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">
-							Account <span class="caret"></span>
+	<div id="wrapper" class="animate">
+		<nav
+			class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+			<span class="navbar-toggler-icon leftmenutrigger"></span> <a
+				class="navbar-brand" href="${linkTo[IndexController].index()}">IFTO</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#menuLeft" aria-controls="menuLeft"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse" id="menuLeft">
+				<ul class="navbar-nav animate side-nav">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> <i class="fas fa-user"></i> Submenu <i
+							class="fas fa-user shortmenu animate"></i>
 					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li class="dropdown-header">SETTINGS</li>
-							<li class=""><a href="#">Other Link</a></li>
-							<li class=""><a href="#">Other Link</a></li>
-							<li class=""><a href="#">Other Link</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Logout</a></li>
-						</ul></li>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a> <a
+								class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div></li>
+					<li class="nav-item"><a class="nav-link" href="#" title="Cart"><i
+							class="fas fa-cart-plus"></i> Cart <i
+							class="fas fa-cart-plus shortmenu animate"></i></a></li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						title="Comment"><i class="fas fa-comment"></i> Comment <i
+							class="fas fa-comment shortmenu animate"></i></a></li>
+				</ul>
+				<ul class="navbar-nav ml-md-auto d-md-flex">
+					<li class="nav-item"><a class="nav-link" href="#"><i
+							class="fas fa-user"></i> Profile</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><i
+							class="fas fa-key"></i> Logout</a></li>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
-	<div class="container-fluid main-container">
-		<div class="col-md-2 sidebar">
+		</nav>
+		<div class="container-fluid">
 			<div class="row">
-				<!-- uncomment code for absolute positioning tweek see top comment in css -->
-				<div class="absolute-wrapper"></div>
-				<!-- Menu -->
-				<div class="side-menu">
-					<nav class="navbar navbar-default" role="navigation">
-						<!-- Main Menu -->
-						<div class="side-menu-container">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#"><span
-										class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-plane"></span>
-										Active Link</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-cloud"></span>
-										Link</a></li>
-
-								<!-- Dropdown-->
-								<li class="panel panel-default" id="dropdown"><a
-									data-toggle="collapse" href="#dropdown-lvl1"> <span
-										class="glyphicon glyphicon-user"></span> Sub Level <span
-										class="caret"></span>
-								</a> <!-- Dropdown level 1 -->
-									<div id="dropdown-lvl1" class="panel-collapse collapse">
-										<div class="panel-body">
-											<ul class="nav navbar-nav">
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-												<li><a href="#">Link</a></li>
-
-												<!-- Dropdown level 2 -->
-												<li class="panel panel-default" id="dropdown"><a
-													data-toggle="collapse" href="#dropdown-lvl2"> <span
-														class="glyphicon glyphicon-off"></span> Sub Level <span
-														class="caret"></span>
-												</a>
-													<div id="dropdown-lvl2" class="panel-collapse collapse">
-														<div class="panel-body">
-															<ul class="nav navbar-nav">
-																<li><a href="#">Link</a></li>
-																<li><a href="#">Link</a></li>
-																<li><a href="#">Link</a></li>
-															</ul>
-														</div>
-													</div></li>
-											</ul>
-										</div>
-									</div></li>
-
-								<li><a href="#"><span
-										class="glyphicon glyphicon-signal"></span> Link</a></li>
-
-							</ul>
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Try Other</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0
+								Snippet by pradeep330</h6>
+							<p class="card-text">You can also try different version of
+								Bootstrap V4 side menu. Click below link to view all Bootstrap
+								Menu versions.</p>
+							<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
+							<a href="http://websitedesigntamilnadu.com" class="card-link">Another
+								link</a>
 						</div>
-						<!-- /.navbar-collapse -->
-					</nav>
-
+					</div>
+				</div>
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Try Other</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0
+								Snippet by pradeep330</h6>
+							<p class="card-text">You can also try different version of
+								Bootstrap V4 side menu. Click below link to view all Bootstrap
+								Menu versions.</p>
+							<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
+							<a href="http://websitedesigntamilnadu.com" class="card-link">Another
+								link</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">First</th>
+										<th scope="col">Last</th>
+										<th scope="col">Handle</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>@fat</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Larry</td>
+										<td>the Bird</td>
+										<td>@twitter</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">First</th>
+										<th scope="col">Last</th>
+										<th scope="col">Handle</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>@fat</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Larry</td>
+										<td>the Bird</td>
+										<td>@twitter</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-10 content">
-			<div class="panel panel-default">
-				<div class="panel-heading">Dashboard</div>
-				<div class="panel-body">Lorem ipsum dolor sit amet,
-					consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-					labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate
-					velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-					occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-					mollit anim id est laborum.</div>
-			</div>
-		</div>
-		<footer class="pull-left footer">
-			<p class="col-md-12">
-			<hr class="divider">
-			Copyright &COPY; 2015 <a href="http://www.pingpong-labs.com">Gravitano</a>
-			</p>
-		</footer>
 	</div>
 
+	<script defer
+		src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>
