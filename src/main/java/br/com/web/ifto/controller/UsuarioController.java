@@ -2,6 +2,7 @@ package br.com.web.ifto.controller;
 
 import java.util.List;
 
+import javax.ejb.Init;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -44,9 +45,7 @@ public class UsuarioController implements iController {
 
 	@Override
 	public void list() {
-		if (usuarios == null || usuarios.isEmpty()) {
-			usuarios = dao.findAll();
-		}
+		preencheLista();
 		result.include("usuarios", usuarios);
 	}
 
@@ -70,7 +69,7 @@ public class UsuarioController implements iController {
 	@Post
 	public void saveOrUpdate(@Valid Usuario usuario) {
 		onErrorRedirectToForm(validator);
-		if (usuario.getId() != 0) {
+		if (usuario.getId() != null) {
 			update(usuario);
 		} else {
 			save(usuario);
@@ -82,11 +81,25 @@ public class UsuarioController implements iController {
 
 	private void update(Usuario usuario) {
 		dao.update(usuario);
-		usuarios.set(index, usuario);
+		manipulaList(index, usuario);
 	}
 
 	private void save(Usuario usuario) {
 		dao.save(usuario);
+		manipulaList(usuario);
+	}
+
+	private void preencheLista() {
+		if (usuarios == null || usuarios.isEmpty()) {
+			usuarios = dao.findAll();
+		}
+	}
+	private void manipulaList(Usuario usuario) {
+		preencheLista();
 		usuarios.add(usuario);
+	}
+	private void manipulaList(int index, Usuario usuario) {
+		preencheLista();
+		usuarios.add(index,usuario);
 	}
 }

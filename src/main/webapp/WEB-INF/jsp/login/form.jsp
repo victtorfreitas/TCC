@@ -2,6 +2,9 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="alura"%>
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+<li class="breadcrumb-item active">Login</li>
+</ol>
+
 <form action="${linkTo[LoginController].login(null)}" method="post">
 	<alura:validationMessage name="login_invalido" />
 

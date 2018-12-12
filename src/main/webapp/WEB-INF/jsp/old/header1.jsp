@@ -135,6 +135,4 @@
 
 		<div id="content-wrapper">
 			<div class="container-fluid">
-
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="${linkTo[IndexController].index()}">Home</a></li>
+				<div class="row">

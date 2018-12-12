@@ -2,6 +2,10 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+<li class="breadcrumb-item"><a href="${linkTo[UsuarioController].list()}">Usuarios</a></li>
+<li class="breadcrumb-item active">Listar</li>
+</ol>
+
 <a href="${linkTo[UsuarioController].form()}">Novo Usuario</a>
 <table class="table table-hover">
 	<thead>
