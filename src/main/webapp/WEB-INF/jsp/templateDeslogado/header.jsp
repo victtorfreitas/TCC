@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 
 <!-- Bootstrap core CSS-->
@@ -12,11 +12,6 @@
 <link href="<c:url value='/styles/fontawesome-free/css/all.min.css'/>"
 	rel="stylesheet" type="text/css" />
 
-<!-- Page level plugin CSS-->
-<link
-	href="<c:url value='/styles/datatables/dataTables.bootstrap4.css'/>"
-	rel="stylesheet" />
-
 <!-- Custom styles for this template-->
 <link href="<c:url value='/styles/css/sb-admin.css'/>" rel="stylesheet" />
 
@@ -26,13 +21,13 @@
 <body id="page-top">
 
 	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-		<button class="btn btn-link btn-sm text-white order-1 order-sm-0"
-			id="sidebarToggle" href="#">
+		<button class="btn btn-link btn-sm text-white order-1 order-sm-0">
 			<i class="fas fa-bars"></i>
 		</button>
-		<a class="navbar-brand mr-1" href="${linkTo[IndexController].index()}">IF-Aplication</a>
-
+		<a class="navbar-brand mr-1" href="#">IF-Aplication</a>
+		<!-- <div class="d-none d-md-inline-block ml-auto mr-0 mr-md-3 my-2 my-md-0"></div> -->
 		<!-- Navbar -->
+		<div class="ml-auto"></div>
 		<ul class="navbar-nav ml-auto ml-md-0">
 			<li class="nav-item dropdown no-arrow"><a
 				class="nav-link dropdown-toggle" href="#" id="userDropdown"

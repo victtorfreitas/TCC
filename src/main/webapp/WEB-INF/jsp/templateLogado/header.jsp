@@ -80,11 +80,11 @@
 			</a>
 				<div class="dropdown-menu dropdown-menu-right"
 					aria-labelledby="userDropdown">
-					<a class="dropdown-item" href="#">Settings</a> <a
-						class="dropdown-item" href="#">Activity Log</a>
+					<a class="dropdown-item" href="#">Editar conta</a> <a
+						class="dropdown-item" href="#">Ver atividades</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#" data-toggle="modal"
-						data-target="#logoutModal">Logout</a>
+						data-target="#logoutModal">Sair</a>
 				</div></li>
 		</ul>
 	</nav>
@@ -137,4 +137,5 @@
 			<div class="container-fluid">
 
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="${linkTo[IndexController].index()}">Home</a></li>
+					<li class="breadcrumb-item"><a
+						href="${linkTo[IndexController].index()}">Home</a></li>
