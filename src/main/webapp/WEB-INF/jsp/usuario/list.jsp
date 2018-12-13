@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:import url="/WEB-INF/jsp/header.jsp" />
+<c:import url="/WEB-INF/jsp/templateLogado/header.jsp" />
 
 <li class="breadcrumb-item"><a href="${linkTo[UsuarioController].list()}">Usuarios</a></li>
 <li class="breadcrumb-item active">Listar</li>
@@ -33,4 +33,4 @@
 		</c:forEach>
 	</tbody>
 </table>
-<c:import url="/WEB-INF/jsp/footer.jsp" />
+<c:import url="/WEB-INF/jsp/templateLogado/footer.jsp" />

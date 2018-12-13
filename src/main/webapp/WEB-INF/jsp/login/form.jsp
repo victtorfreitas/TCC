@@ -1,9 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="alura"%>
-<c:import url="/WEB-INF/jsp/header.jsp" />
-
-<li class="breadcrumb-item active">Login</li>
-</ol>
+<c:import url="/WEB-INF/jsp/templateDeslogado/header.jsp" />
 
 <form action="${linkTo[LoginController].login(null)}" method="post">
 	<alura:validationMessage name="login_invalido" />
@@ -17,4 +14,4 @@
 	</div>
 </form>
 
-<c:import url="/WEB-INF/jsp/footer.jsp" />
+<c:import url="/WEB-INF/jsp/templateDeslogado/footer.jsp" />

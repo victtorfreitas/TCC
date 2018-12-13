@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="alura"%>
-<c:import url="/WEB-INF/jsp/header.jsp" />
+<c:import url="/WEB-INF/jsp/templateLogado/header.jsp" />
 
 <li class="breadcrumb-item"><a href="${linkTo[UsuarioController].list()}">Usuarios</a></li>
 <li class="breadcrumb-item active">Cadastrar</li>
@@ -66,4 +66,4 @@
 	</div>
 </div>
 
-<c:import url="/WEB-INF/jsp/footer.jsp" />
+<c:import url="/WEB-INF/jsp/templateLogado/footer.jsp" />
