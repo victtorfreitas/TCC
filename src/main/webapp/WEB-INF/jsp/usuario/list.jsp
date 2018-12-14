@@ -7,16 +7,21 @@
 <li class="breadcrumb-item active">Listar</li>
 </ol>
 
-<a href="${linkTo[UsuarioController].form()}">Novo Usuario</a>
+
 
 <div class="card mb-3">
-	<div class="card-header">
-		<i class="fas fa-table"></i> Usuarios Cadastrados
+	<div class="card-header" style="border-bottom: 0px">
+		<i class="fas fa-table"></i> Usuarios Cadastrados <a
+			href="${linkTo[UsuarioController].form()}"
+			class="btn btn-outline-secondary" style="float: right;"> Novo
+			Usuario <span class="fa fa-plus-circle" /></span>
+		</a>
+
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
-			<table class="table table-bordered" id="tabelaUsuario" width="100%"
-				cellspacing="0">
+			<table class="table table-striped table-bordered table-hover"
+				id="tabelaUsuario">
 				<thead>
 					<tr>
 						<th>Id</th>

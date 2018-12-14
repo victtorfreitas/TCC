@@ -59,11 +59,14 @@
 <!-- Page level plugin JavaScript-->
 <script src="<c:url value='/styles/chart.js/Chart.min.js'/>"></script>
 
+<!-- DataTables JavaScript -->
+
 <script src="<c:url value='/styles/datatables/jquery.dataTables.js'/>"></script>
 
 <script
 	src="<c:url value='/styles/datatables/dataTables.bootstrap4.js'/>"></script>
-
+	
+	
 <!-- Custom scripts for all pages-->
 <script src="<c:url value='/styles/js/sb-admin.min.js'/>"></script>
 
