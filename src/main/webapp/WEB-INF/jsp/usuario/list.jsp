@@ -11,11 +11,14 @@
 
 <div class="card mb-3">
 	<div class="card-header" style="border-bottom: 0px">
-		<i class="fas fa-table"></i> Usuarios Cadastrados <a
-			href="${linkTo[UsuarioController].form()}"
-			class="btn btn-outline-secondary" style="float: right;"> Novo
-			Usuario <span class="fa fa-plus-circle" /></span>
-		</a>
+		<i class="fas fa-table"></i> Usuarios Cadastrados
+
+		<button class="btn btn-outline-secondary" data-toggle="modal"
+			data-target="#newUserModel" style="float: right;">
+			Novo Usuario <span class="fa fa-plus-circle" /></span>
+		</button>
+
+
 
 	</div>
 	<div class="card-body">
@@ -24,26 +27,31 @@
 				id="tabelaUsuario">
 				<thead>
 					<tr>
-						<th>Id</th>
+						<th class="text-center" style="width: 4%;">#</th>
 						<th>Nome</th>
 						<th>E-mail</th>
 						<th>Login</th>
-						<th>Ação</th>
+						<th class="text-center">Ação</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${usuarios}" var="usuario" varStatus="i">
 						<tr>
-							<td>${i.index}</td>
+							<td class="text-center">${i.index+1}</td>
 							<td>${usuario.nome}</td>
 							<td>${usuario.email}</td>
 							<td>${usuario.login}</td>
-							<td><a
-								href="${linkTo[UsuarioController].editToForm(i.index)}"> <span
-									class="glyphicon glyphicon-pencil">i</span></a> <a class="close"
-								aria-label="Close"
-								href="${linkTo[UsuarioController].remove(i.index)}"><span
-									class="glyphicon glyphicon-remove" aria-hidden="true">x</span></a></td>
+							<td class="text-center"><a class="btn btn-primary"
+								href="${usuarioController.editToForm(i.index)}">
+									<span class="fa fa-edit" data-toggle="modal"
+									data-target="#newUserModel"></span>
+							</a>
+								<button class="btn btn-danger" data-toggle="modal"
+									data-target="#removerUserModel"
+									onclick="<c:set value='${i.index}' var='indexSet' scope='request'/>">
+									<span class="fa fa-times" style="font-size: 110%;"
+										aria-hidden="true"></span>
+								</button></td>
 						</tr>
 					</c:forEach>
 				</tbody>

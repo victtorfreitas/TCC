@@ -61,8 +61,8 @@ public class UsuarioController implements iController {
 	public void editToForm(int index) {
 		UsuarioController.index = index;
 		Usuario usuario = usuarios.get(index);
-		result.include("usuario", usuario);
-		redirectToForm(result);
+		result.include("user", usuario);
+		redirectToList(result);
 	}
 
 	@IncludeParameters

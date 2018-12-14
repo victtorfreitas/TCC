@@ -46,6 +46,48 @@
 	</div>
 </div>
 
+<div class="modal fade" id="newUserModel" tabindex="-1" role="dialog"
+	aria-labelledby="headerNewUser" aria-hidden="true"
+	data-backdrop="static">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="headerNewUser">Cadastrar novo
+					usuario</h5>
+				<button class="close" type="button" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<c:import url="../default/formularioUsuario.jsp"></c:import>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="removerUserModel" tabindex="-1"
+	role="dialog" aria-labelledby="headerRemoverUser" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="headerRemoverUser">Deseja realmente
+					excluir este usuario?</h5>
+				<button class="close" type="button" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">Selecione "Remover" para efetuar a
+				exclusão do usuário</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+				<a class="btn btn-danger"
+					href="${linkTo[UsuarioController].remove(indexSet)}">Remover</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="<c:url value='/styles/jquery/jquery.min.js'/>"></script>
 
@@ -65,8 +107,8 @@
 
 <script
 	src="<c:url value='/styles/datatables/dataTables.bootstrap4.js'/>"></script>
-	
-	
+
+
 <!-- Custom scripts for all pages-->
 <script src="<c:url value='/styles/js/sb-admin.min.js'/>"></script>
 
@@ -75,13 +117,17 @@
 
 <script src="<c:url value='/styles/js/demo/chart-area-demo.js'/>"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#tabelaUsuario').dataTable( {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-        }
-    } );
-} );
+	$(document)
+			.ready(
+					function() {
+						$('#tabelaUsuario')
+								.dataTable(
+										{
+											"language" : {
+												"url" : "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+											}
+										});
+					});
 </script>
 </body>
 
