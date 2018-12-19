@@ -49,8 +49,8 @@ public class UsuarioController implements iController {
 		result.include("usuarios", usuarios);
 	}
 
-	@Get("/usuario/remove/{index}")
-	public void remove(int index) {
+	@Get("/usuario/remove/{id}")
+	public void remove(int id) {
 		Usuario usuario = usuarios.get(index);
 		dao.remove(usuario);
 		usuarios.remove(usuario);

@@ -77,12 +77,17 @@
 					<span aria-hidden="true">×</span>
 				</button>
 			</div>
-			<div class="modal-body">Selecione "Remover" para efetuar a
-				exclusão do usuário</div>
+			<div class="modal-body">
+				Selecione "Remover" para efetuar a exclusão do usuário do ID: <i
+					id="indexValorRemoved" value=""></i>
+			</div>
+			<c:set value="valorIndex()" var="aSerRemovido" scope="request"></c:set>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-				<a class="btn btn-danger"
-					href="${linkTo[UsuarioController].remove(indexSet)}">Remover</a>
+				<form action="${linkTo[UsuarioController].remove(null)}" method="get">
+				<input type="text" hidden="true" id="index" name="index">
+				<button type="submit" class="btn btn-danger">Remover</button>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -116,7 +121,13 @@
 <script src="<c:url value='/styles/js/demo/datatables-demo.js'/>"></script>
 
 <script src="<c:url value='/styles/js/demo/chart-area-demo.js'/>"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+
 <script type="text/javascript">
+	var indexValorRemoved;
+	
 	$(document)
 			.ready(
 					function() {
@@ -128,6 +139,51 @@
 											}
 										});
 					});
+	function removerUsuario(valor) {
+		/* var tbUsuarios = document.querySelectorAll("#trUsuarios");
+		var indexValue;
+		for (var i = 0; i < tbUsuarios.length; i++) {
+			indexValue = tbUsuarios[i].querySelector("#index").textContent;
+		} */
+		alert(valor);
+		var valorRemover = document.querySelector("#indexValorRemoved");
+		valorRemover.textContent = valor;
+		var boraLa = document.querySelector("#index");
+		boraLa.textContent = valor;		
+		indexValorRemoved = valor;
+	}
+	
+	function valorIndex(){
+		console.log("Entrei K7");
+		return indexValorRemoved;
+	}
+	
+
+	
+	function confirma(id){
+			console.log(id);
+			bootbox.confirm({
+				  message:'Confirma a exclusão do registro?'+id,
+				  callback: function(confirmacao){
+	
+				    if (confirmacao){
+				      bootbox.alert('Registro excluído com sucesso.');
+				      var path = "${linkTo[UsuarioController].remove()}";
+				      window.location.href = path+id;
+				      console.log(primeiraParte+id);
+				    }
+				    else
+				    	window.location.reload();
+				  
+				  },
+				  buttons: {
+				    cancel: {label: 'Cancelar',className:'btn-default'},
+				    confirm: {label: 'EXCLUIR',className:'btn-danger'}
+				    
+				  }
+				});
+		}
+	
 </script>
 </body>
 

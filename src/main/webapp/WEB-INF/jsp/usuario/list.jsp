@@ -36,22 +36,23 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${usuarios}" var="usuario" varStatus="i">
-						<tr>
-							<td class="text-center">${i.index+1}</td>
+						<tr id="trUsuarios">
+							<td class="text-center" id="index">${i.index+1}</td>
 							<td>${usuario.nome}</td>
 							<td>${usuario.email}</td>
 							<td>${usuario.login}</td>
 							<td class="text-center"><a class="btn btn-primary"
-								href="${usuarioController.editToForm(i.index)}">
-									<span class="fa fa-edit" data-toggle="modal"
+								href="${usuarioController.editToForm(i.index)}"> <span
+									class="fa fa-edit" data-toggle="modal"
 									data-target="#newUserModel"></span>
-							</a>
-								<button class="btn btn-danger" data-toggle="modal"
-									data-target="#removerUserModel"
-									onclick="<c:set value='${i.index}' var='indexSet' scope='request'/>">
+							</a> <!--  <button id="valorId" type="submit" name="index" class="btn btn-danger" data-toggle="modal"
+									data-target="#removerUserModel" onclick="removerUsuario(${i.index})"
+									value="${i.index}">
 									<span class="fa fa-times" style="font-size: 110%;"
 										aria-hidden="true"></span>
-								</button></td>
+								</button> -->
+								<button class="btn"
+									onclick="confirma(${usuario.id})">Remover</button></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -59,4 +60,5 @@
 		</div>
 	</div>
 </div>
+
 <c:import url="/WEB-INF/jsp/templateLogado/footer.jsp" />
