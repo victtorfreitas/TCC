@@ -1,10 +1,12 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <c:import url="/WEB-INF/jsp/templateLogado/header.jsp" />
 
 <li class="breadcrumb-item"><a
 	href="${linkTo[UsuarioController].list()}">Usuarios</a></li>
 <li class="breadcrumb-item active">Listar</li>
+	
 </ol>
 
 
@@ -17,8 +19,6 @@
 			data-target="#newUserModel" style="float: right;">
 			Novo Usuario <span class="fa fa-plus-circle" /></span>
 		</button>
-
-
 
 	</div>
 	<div class="card-body">
@@ -41,18 +41,16 @@
 							<td>${usuario.nome}</td>
 							<td>${usuario.email}</td>
 							<td>${usuario.login}</td>
-							<td class="text-center"><a class="btn btn-primary"
-								href="${usuarioController.editToForm(i.index)}"> <span
-									class="fa fa-edit" data-toggle="modal"
-									data-target="#newUserModel"></span>
-							</a> <!--  <button id="valorId" type="submit" name="index" class="btn btn-danger" data-toggle="modal"
-									data-target="#removerUserModel" onclick="removerUsuario(${i.index})"
-									value="${i.index}">
+							<td class="text-center">
+							<a class="btn btn-primary"
+								href="${linkTo[UsuarioController].editToForm(i.index)}"> <span
+									class="fa fa-edit"></span>
+							</a>
+								<button class="btn btn-danger" valor="${i.index}"
+									onclick="removerUsuario(this)">
 									<span class="fa fa-times" style="font-size: 110%;"
 										aria-hidden="true"></span>
-								</button> -->
-								<button class="btn"
-									onclick="confirma(${usuario.id})">Remover</button></td>
+								</button></td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -57,7 +57,7 @@ public class LoginController implements iController {
 			}
 		}
 		addMensagem("login_invalido", "Login ou senha incorretos!", validator);
-		onErrorRedirectToForm(validator);
+		onMsgRedirectTo(validator).form();
 	}
 
 	@Open

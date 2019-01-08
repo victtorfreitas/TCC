@@ -51,10 +51,11 @@ public class UsuarioController implements iController {
 
 	@Get("/usuario/remove/{id}")
 	public void remove(int id) {
-		Usuario usuario = usuarios.get(index);
+		Usuario usuario = usuarios.get(id);
 		dao.remove(usuario);
 		usuarios.remove(usuario);
-		redirectToList(result);
+		addMensagem("remover_usuario","Usuario <b>"+usuario.getNome()+"</b> Removido com sucesso");
+		onMsgRedirectTo(validator).list();
 	}
 
 	@Get("/usuario/editToForm/{index}")
@@ -68,13 +69,13 @@ public class UsuarioController implements iController {
 	@IncludeParameters
 	@Post
 	public void saveOrUpdate(@Valid Usuario usuario) {
-		onErrorRedirectToForm(validator);
+		onMsgRedirectTo(validator).form();
 		if (usuario.getId() != null) {
 			update(usuario);
 		} else {
 			save(usuario);
 		}
-		redirectToList(result);
+		onMsgRedirectTo(validator).list();
 	}
 
 	// Metodos privados
@@ -87,6 +88,7 @@ public class UsuarioController implements iController {
 	private void save(Usuario usuario) {
 		dao.save(usuario);
 		manipulaList(usuario);
+		addMensagem("adiciona_usuario", "Usuario <b>"+usuario.getNome()+"</b> adicionado com sucesso");
 	}
 
 	private void preencheLista() {
@@ -101,5 +103,15 @@ public class UsuarioController implements iController {
 	private void manipulaList(int index, Usuario usuario) {
 		preencheLista();
 		usuarios.add(index,usuario);
+	}
+	
+	/**
+	 * Adiciona uma mensagem
+	 * @param nome 
+	 * @param texto
+	 */
+	private void addMensagem(String nome, String texto) {
+		addMensagem(nome,texto , validator);
+		result.include("msg", nome);
 	}
 }

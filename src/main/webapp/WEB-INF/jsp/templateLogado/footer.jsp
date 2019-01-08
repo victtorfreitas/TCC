@@ -46,6 +46,7 @@
 	</div>
 </div>
 
+
 <div class="modal fade" id="newUserModel" tabindex="-1" role="dialog"
 	aria-labelledby="headerNewUser" aria-hidden="true"
 	data-backdrop="static">
@@ -93,6 +94,7 @@
 	</div>
 </div>
 
+
 <!-- Bootstrap core JavaScript-->
 <script src="<c:url value='/styles/jquery/jquery.min.js'/>"></script>
 
@@ -124,10 +126,14 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
+<script src="<c:url value='/styles/js/crud.js'/>"></script>
+
+<c:if test="${not empty user}">
+	<script type="text/javascript">$('#newUserModel').modal();</script>
+</c:if>
 
 <script type="text/javascript">
-	var indexValorRemoved;
-	
+
 	$(document)
 			.ready(
 					function() {
@@ -139,38 +145,18 @@
 											}
 										});
 					});
-	function removerUsuario(valor) {
-		/* var tbUsuarios = document.querySelectorAll("#trUsuarios");
-		var indexValue;
-		for (var i = 0; i < tbUsuarios.length; i++) {
-			indexValue = tbUsuarios[i].querySelector("#index").textContent;
-		} */
-		alert(valor);
-		var valorRemover = document.querySelector("#indexValorRemoved");
-		valorRemover.textContent = valor;
-		var boraLa = document.querySelector("#index");
-		boraLa.textContent = valor;		
-		indexValorRemoved = valor;
-	}
-	
-	function valorIndex(){
-		console.log("Entrei K7");
-		return indexValorRemoved;
-	}
-	
 
-	
-	function confirma(id){
-			console.log(id);
+	function removerUsuario(botao){
+			var index = $(botao).attr('valor');
+			var path = "${linkTo[UsuarioController].remove()}";
+			console.log(path+index);
+			console.log(index);
 			bootbox.confirm({
-				  message:'Confirma a exclusão do registro?'+id,
+				  message:'Confirma a exclusão do registro?',
 				  callback: function(confirmacao){
-	
-				    if (confirmacao){
-				      bootbox.alert('Registro excluído com sucesso.');
-				      var path = "${linkTo[UsuarioController].remove()}";
-				      window.location.href = path+id;
-				      console.log(primeiraParte+id);
+
+				    if (confirmacao){	
+				      window.location.href = path+index;
 				    }
 				    else
 				    	window.location.reload();
@@ -183,8 +169,12 @@
 				  }
 				});
 		}
-	
+	function editarUsuario(botao){
+		$("#myModal").modal();
+	}
 </script>
+
+
 </body>
 
 </html>

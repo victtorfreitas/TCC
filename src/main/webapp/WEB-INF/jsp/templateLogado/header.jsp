@@ -1,4 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="msg"%>
+
 
 <html>
 <head>
@@ -25,7 +27,8 @@
 
 <body id="page-top">
 
-	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+	<nav class="navbar navbar-expand navbar-dark static-top"
+		style="background-color: #233142 !important;">
 		<button class="btn btn-link btn-sm text-white order-1 order-sm-0"
 			id="sidebarToggle" href="#">
 			<i class="fas fa-bars"></i>
@@ -93,7 +96,7 @@
 
 
 		<!-- Sidebar -->
-		<ul class="sidebar navbar-nav">
+		<ul class="sidebar navbar-nav" style="background-color: #0f1e2b;">
 			<li class="nav-item active"><a class="nav-link"
 				href="${linkTo[IndexController].index()}"> <i
 					class="fas fa-fw fa-home"></i> <span>Home</span>
@@ -137,5 +140,16 @@
 			<div class="container-fluid">
 
 				<ol class="breadcrumb">
+					<c:if test="${not empty errors}">
+						<div
+							style="display: block; position: fixed; right: 15px; width: 20%;">
+							<div class="alert alert-success alert-dismissable"
+								style="margin: 0 auto; box-shadow: 1px 1px 5px black;">
+								<button type="button" class="close" data-dismiss="alert"
+									aria-hidden="true">&times;</button>
+								<msg:validationMessage name="${msg}" />
+							</div>
+						</div>
+					</c:if>
 					<li class="breadcrumb-item"><a
 						href="${linkTo[IndexController].index()}">Home</a></li>

@@ -20,7 +20,7 @@
 
 <body id="page-top">
 
-	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+	<nav class="navbar navbar-expand navbar-dark static-top" style="background-color:#233142!important;">
 		<button class="btn btn-link btn-sm text-white order-1 order-sm-0">
 			<i class="fas fa-bars"></i>
 		</button>

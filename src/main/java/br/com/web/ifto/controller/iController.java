@@ -21,8 +21,8 @@ public interface iController {
 	default void form() {
 	}
 
-	default void onErrorRedirectToForm(Validator validator) {
-		validator.onErrorRedirectTo(this).form();
+	default iController onMsgRedirectTo(Validator validator) {
+		return validator.onErrorRedirectTo(this);
 	}
 
 	default void redirectToForm(Result result) {
