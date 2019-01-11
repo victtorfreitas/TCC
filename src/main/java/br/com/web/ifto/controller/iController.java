@@ -11,26 +11,23 @@ import br.com.caelum.vraptor.validator.Validator;
  *
  */
 public interface iController {
+	
+	public void find();
 
-	default void index() {
-	}
+	public void index();
 
-	default void list() {
-	}
+	public void list();
+	
+	public void remove();
 
-	default void form() {
-	}
+	public void form();
 
 	default iController onMsgRedirectTo(Validator validator) {
 		return validator.onErrorRedirectTo(this);
 	}
 
-	default void redirectToForm(Result result) {
-		result.redirectTo(this).form();
-	}
-
-	default void redirectToList(Result result) {
-		result.redirectTo(this).list();
+	default iController redirectTo(Result result) {
+		return result.redirectTo(this);
 	}
 
 	default void redirectToClassIndex(Class<?> classe, Result result) {

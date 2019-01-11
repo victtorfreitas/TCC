@@ -45,13 +45,17 @@ public class GenericDao<T> implements Serializable, Dao<T> {
 	// Metodos sobrescritos da interface
 
 	@Override
-	public T findById(int id) {
+	public T findById(Long id) {
 		return em.find(this.classeObject, id);
 	}
 
 	@Override
 	public T findByParams(String where, Object... params) {
 		return getSingleResult(queryWithWhere(where, params));
+	}
+
+	public List<T> findByParamsList(String where, Object... params) {
+		return getResultList(queryWithWhere(where, params));
 	}
 
 	@Transactional
@@ -73,7 +77,7 @@ public class GenericDao<T> implements Serializable, Dao<T> {
 	}
 
 	@Override
-	public void remove(int id) {
+	public void remove(Long id) {
 		T instancia = findById(id);
 		remove(instancia);
 	}

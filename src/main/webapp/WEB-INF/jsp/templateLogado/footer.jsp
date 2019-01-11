@@ -53,7 +53,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="headerNewUser">Cadastrar novo
+				<h5 class="modal-title" id="headerNewUser"><span id="nameModal">Cadastrar novo</span>
 					usuario</h5>
 				<button class="close" type="button" data-dismiss="modal"
 					aria-label="Close">
@@ -79,16 +79,13 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				Selecione "Remover" para efetuar a exclusão do usuário do ID: <i
-					id="indexValorRemoved" value=""></i>
+				Selecione "Remover" para efetuar a exclusão do usuário: <b>${user.nome}</b>
 			</div>
 			<c:set value="valorIndex()" var="aSerRemovido" scope="request"></c:set>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-				<form action="${linkTo[UsuarioController].remove(null)}" method="get">
-				<input type="text" hidden="true" id="index" name="index">
-				<button type="submit" class="btn btn-danger">Remover</button>
-				</form>
+				<a class="btn btn-danger"
+					href="${linkTo[UsuarioController].remove(user.id)}">Remover</a>
 			</div>
 		</div>
 	</div>
@@ -124,16 +121,33 @@
 
 <script src="<c:url value='/styles/js/demo/chart-area-demo.js'/>"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 <script src="<c:url value='/styles/js/crud.js'/>"></script>
 
-<c:if test="${not empty user}">
-	<script type="text/javascript">$('#newUserModel').modal();</script>
+<c:if test="${not empty edit}">
+	<script type="text/javascript">
+		$('#newUserModel').modal();
+		$("#nameModal").text("Editar ");
+	</script>
+</c:if>
+<c:if test="${not empty remove}">
+	<script type="text/javascript">
+		$('#removerUserModel').modal();
+	</script>
+</c:if>
+
+<c:if test="${not empty info}">
+	<script type="text/javascript">
+		$(".form-control").attr("disabled", true);
+		$(".form-cadastro").attr("hidden", true);
+		$("#newUserModel").removeAttr("data-backdrop");
+		$("#nameModal").text("Informações sobre");
+	</script>
 </c:if>
 
 <script type="text/javascript">
-
 	$(document)
 			.ready(
 					function() {
@@ -146,31 +160,33 @@
 										});
 					});
 
-	function removerUsuario(botao){
-			var index = $(botao).attr('valor');
-			var path = "${linkTo[UsuarioController].remove()}";
-			console.log(path+index);
-			console.log(index);
-			bootbox.confirm({
-				  message:'Confirma a exclusão do registro?',
-				  callback: function(confirmacao){
+	function removerUsuario(botao) {
+		var index = $(botao).attr('valor');
+		var path = "${linkTo[UsuarioController].remove()}";
+		console.log(path + index);
+		console.log(index);
+		bootbox.confirm({
+			message : 'Confirma a exclusão do registro?',
+			callback : function(confirmacao) {
 
-				    if (confirmacao){	
-				      window.location.href = path+index;
-				    }
-				    else
-				    	window.location.reload();
-				  
-				  },
-				  buttons: {
-				    cancel: {label: 'Cancelar',className:'btn-default'},
-				    confirm: {label: 'EXCLUIR',className:'btn-danger'}
-				    
-				  }
-				});
-		}
-	function editarUsuario(botao){
-		$("#myModal").modal();
+				if (confirmacao) {
+					window.location.href = path + index;
+				} else
+					window.location.reload();
+
+			},
+			buttons : {
+				cancel : {
+					label : 'Cancelar',
+					className : 'btn-default'
+				},
+				confirm : {
+					label : 'EXCLUIR',
+					className : 'btn-danger'
+				}
+
+			}
+		});
 	}
 </script>
 

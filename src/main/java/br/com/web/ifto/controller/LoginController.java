@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.web.ifto.controller.seguranca.UsuarioLogado;
 import br.com.web.ifto.model.annotations.Open;
@@ -63,7 +62,25 @@ public class LoginController implements iController {
 	@Open
 	public void deslogar() {
 		usuarioLogado.deslogar();
-		redirectToForm(result);
+		redirectTo(result).form();
+	}
+
+	@Override
+	public void find() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void index() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

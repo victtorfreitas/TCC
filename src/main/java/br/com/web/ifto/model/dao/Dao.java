@@ -15,7 +15,7 @@ public interface Dao<T>{
 	 * @param id primary key
 	 * @return objeto buscado no banco de dados
 	 */
-	public T findById(int id);
+	public T findById(Long id);
 	
 	/**
 	 * Busca por parametros feitos na where
@@ -51,7 +51,7 @@ public interface Dao<T>{
 	 * 
 	 * @param id primary key
 	 */
-	public void remove(int id);
+	public void remove(Long id);
 
 	/**
 	 * Busca todos os Elementos da Entity T

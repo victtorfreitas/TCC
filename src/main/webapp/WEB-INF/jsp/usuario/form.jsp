@@ -14,5 +14,4 @@
 		<c:import url="../default/formularioUsuario.jsp"></c:import>
 	</div>
 </div>
-
 <c:import url="/WEB-INF/jsp/templateLogado/footer.jsp" />

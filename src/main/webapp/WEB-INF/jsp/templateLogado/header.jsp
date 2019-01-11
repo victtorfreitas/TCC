@@ -105,13 +105,13 @@
 				class="nav-link dropdown-toggle"
 				href="${linkTo[UsuarioController].list()}" id="pagesDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"> <i class="fas fa-fw fa-folder"></i> <span>Usuario</span>
+				aria-expanded="false"> <i class="fas fa-fw fa-users"></i> <span>Usuario</span>
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 					<h6 class="dropdown-header">Opções:</h6>
-					<a class="dropdown-item" href="login.html">Buscar</a> <a
+					<a class="dropdown-item" href="${linkTo[UsuarioController].find()}">Buscar</a> <a
 						class="dropdown-item" href="${linkTo[UsuarioController].form()}">Adicionar</a>
-					<a class="dropdown-item" href="register.html">Remover</a> <a
+					<a class="dropdown-item" href="${linkTo[UsuarioController].remove()}">Remover</a> <a
 						class="dropdown-item" href="forgot-password.html">Atualizar</a>
 					<div class="dropdown-divider"></div>
 					<h6 class="dropdown-header">Outras Opções:</h6>

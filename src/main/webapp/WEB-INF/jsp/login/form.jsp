@@ -39,7 +39,7 @@
 				<button type="submit" class="btn btn-primary btn-block">Autenticar</button>
 			</form>
 			<div class="text-center">
-				<a class="d-block small mt-3" href="register.html">Cadastrar uma
+				<a class="d-block small mt-3" href="${linkTo[UsuarioController].form()}">Cadastrar uma
 					conta</a> <a class="d-block small" href="forgot-password.html">Problemas
 					no login?</a>
 			</div>
